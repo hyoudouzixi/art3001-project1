@@ -77,18 +77,7 @@ function draw() {
 
     text(score, width - 80, 50);
 
-    for (let a = 0; a < radians(360); a += radians(30)) {
-        push();
-        translate(mouseX, mouseY);
-        rotate(a);
-        translate(0, 100);
-        rotate(-angle);
-        rectMode(CENTER);
-        square(0, 0, 25);
-        pop();
-    }
-
-    angle += radians(1);
+    rotateSquares(mouseX, mouseY);
 
 } 
 
@@ -108,3 +97,17 @@ function mousePressed() {
     bullets.push(bullet);
 }
 
+function rotateSquares(x, y) {
+    for (let a = 0; a < radians(360); a += radians(30)) {
+        push();
+        translate(x, y);
+        rotate(a);
+        translate(0, 100);
+        rotate(-angle);
+        rectMode(CENTER);
+        square(0, 0, 25);
+        pop();
+    }
+
+    angle += radians(1);
+}
